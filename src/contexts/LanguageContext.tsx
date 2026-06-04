@@ -1,8 +1,9 @@
-"use client";
+'use client';
 
-import { createContext, useContext, useState, ReactNode, useEffect } from "react";
+import React, { createContext, useContext, useState, ReactNode } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 
-type Language = "en" | "ja";
+type Language = 'en' | 'ja';
 
 interface LanguageContextType {
     language: Language;
@@ -12,25 +13,24 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-    const [language, setLanguageState] = useState<Language>("en");
+interface LanguageProviderProps {
+    children: ReactNode;
+    initialLanguage?: Language;
+}
 
-    // ローカルストレージから言語設定を読み込み
-    useEffect(() => {
-        const savedLanguage = localStorage.getItem("misfitt-language") as Language;
-        if (savedLanguage === "en" || savedLanguage === "ja") {
-            setLanguageState(savedLanguage);
-        }
-    }, []);
-
-    const setLanguage = (lang: Language) => {
-        setLanguageState(lang);
-        localStorage.setItem("misfitt-language", lang);
-    };
+export function LanguageProvider({ children, initialLanguage = 'ja' }: LanguageProviderProps) {
+    const [language, setLanguage] = useState<Language>(initialLanguage);
+    const router = useRouter();
+    const pathname = usePathname();
 
     const toggleLanguage = () => {
-        const newLanguage = language === "en" ? "ja" : "en";
-        setLanguage(newLanguage);
+        const newLang = language === 'en' ? 'ja' : 'en';
+        setLanguage(newLang);
+
+        // No-Reload URL Update
+        // Update the URL without triggering a Next.js navigation/remount
+        const newPath = pathname.replace(`/${language}`, `/${newLang}`);
+        window.history.pushState(null, '', newPath);
     };
 
     return (
@@ -43,7 +43,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 export function useLanguage() {
     const context = useContext(LanguageContext);
     if (context === undefined) {
-        throw new Error("useLanguage must be used within a LanguageProvider");
+        throw new Error('useLanguage must be used within a LanguageProvider');
     }
     return context;
 }

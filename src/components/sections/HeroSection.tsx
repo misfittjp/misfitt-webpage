@@ -55,7 +55,7 @@ export function HeroSection() {
                     >
                         {/* メインコピー */}
                         <h1 className={`text-hero tracking-tight text-white mb-8 ${language === "ja" ? "font-ja-serif" : "font-serif"}`}>
-                            {content.title}
+                            <span className="block">{content.title}</span>
                         </h1>
 
                         {/* サブコピー */}

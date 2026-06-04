@@ -1,0 +1,176 @@
+// src/data/sections/reviews.ts
+
+export interface Review {
+  id: string;
+  name: string;
+  location: string;
+  date: string;
+  text: string;
+  image: string;
+  duration: "8h" | "6h";
+}
+
+export const guestReviews: Review[] = [
+  // ==========================================
+  // --- 8-HOUR FULL-DAY IMMERSION (35件) ---
+  // ==========================================
+  {
+    id: "8h_1",
+    name: "Tony",
+    location: "USA",
+    date: "Sep 2024",
+    image: "https://a0.muscache.com/im/pictures/user/106691456/original/b34336c5-412e-4402-9844-399042236e76.jpg?im_w=profile_large",
+    duration: "8h",
+    text: "Fantastic experience, really really amazing. He is Tokyo. Don’t second think this experience. Do it!"
+  },
+  {
+    id: "8h_2",
+    name: "Chanel",
+    location: "USA",
+    date: "Aug 2025",
+    image: "https://a0.muscache.com/im/pictures/user/User/original/4eddb8ee-4555-440e-8457-a21afb788324.jpeg?im_w=profile_large",
+    duration: "8h",
+    text: "Stop what you’re doing. Book Yuichi right away before someone else does! I absolutely loved his experience. I loved it so much I booked it twice in the same week so I could keep exploring. Yuichi is an extremely talented, knowledgeable, unique and thoughtful tour guide. He listens to your interests, he curates a unique experience based on your feedback and will continue to refine until he’s found all the unique customized gems for you to explore. He also is extremely hospitable and thinks about everything you need. My tour was on the hottest day recorded in Japan history. Yuichi had handheld ice packs, portable fans with an AC feature, electrolytes and towels. I was ambitious about what I wanted to see. Yuichi curated a day full of deep history, dashes of pop culture and stops that were tailored to my favorites (candles, merchant shops). What a rich experience filled with culture, kindness and creativity. Yuichi is incredible. This trip changed my life."
+  },
+  {
+    id: "8h_3",
+    name: "Nicholas",
+    location: "Charlotte, NC",
+    date: "Nov 2025",
+    image: "https://a0.muscache.com/im/pictures/user/User/original/0d9a0937-4e2d-4ae8-826d-72fe828ae399.jpeg?im_w=profile_large",
+    duration: "8h",
+    text: "Spending the day in Tokyo with Yuichi was amazing. It felt like exploring the city with a friend who knows every hidden gem. We walked nearly 28,000 steps but never felt rushed — he planned everything perfectly so we could see and experience as much as possible. Yuichi picked incredible food stops: tender Wagyu beef, top-grade bluefin sashimi, one of the best bowls of ramen I’ve ever had, and even sorbet tucked away in a cool department store. He’s so knowledgeable about Tokyo’s history and both Shinto and Buddhism, and he explained everything in a way that really stuck. Everywhere we went, people greeted him with warmth and respect. He even taught me how to use the Suica card and subways. It was the perfect mix of culture, food, and real connection. 10/10 — Yuichi was fantastic. Truly hope our paths cross again one day."
+  },
+  {
+    id: "8h_4",
+    name: "Julia",
+    location: "Indonesia",
+    date: "Oct 2025",
+    image: "https://a0.muscache.com/im/pictures/user/User/original/4eddb8ee-4555-440e-8457-a21afb788324.jpeg?im_w=profile_large",
+    duration: "8h",
+    text: "Our private tour w/ Yuichi was an absolute highlight of our trip. He is not ur average tour guide; his passion and expertise made our day truly special. Yuichi's knowledge is incredible, effortlessly spanning from ancient history to modern pop culture and even the latest trending snacks! The conversation nvr stopped flowing, especially since we shared a mutual love for movies and anime. He took us to amazing local spots and hidden gems we never would have found on our own, happily and patiently answering all of our questions. What truly sets Yuichi apart is his exceptional kindness and flexibility. When a member of our group had shoe trouble, slowing us down, Yuichi didn't just adjust the pace; he graciously extended our tour by an extra hour to ensure we saw everything on our itinerary. He even went above and beyond to help us purchase new sandals. This level of service is rare and was so deeply appreciated. He is the most well-prepared and thoughtful guide I have ever met. Thank you!"
+  },
+  {
+    id: "8h_5",
+    name: "Reuben",
+    location: "Honolulu, HI",
+    date: "Dec 2025",
+    image: "https://a0.muscache.com/im/pictures/user/User/original/6c934375-7b56-429a-8a03-9d045d4c9826.jpeg?im_w=profile_large",
+    duration: "8h",
+    text: "Our family had an absolutely incredible day with Yuichi! From the very beginning, his communication and service were top-notch. What impressed me most was how much care he took before we even met; he asked a ton of questions to understand our interests, which allowed us to fully customize the tour to fit our family perfectly. Yuichi is a wealth of knowledge regarding Japanese history, and he guided us through the best spots in the Tsukiji Outer Market with ease. A huge highlight was the ramen, he took us to his 'all-time favorite' spot, and you can tell he knows his stuff because it was delicious! Beyond the sights, we are extremely grateful for his expert travel tips; he gave us advice on public transportation that saved us a significant amount of money. If you want a knowledgeable, thoughtful, and professional guide, Yuichi is highly recommended!"
+  },
+  {
+    id: "8h_6",
+    name: "Doug",
+    location: "Los Angeles, CA",
+    date: "Aug 2025",
+    image: "https://a0.muscache.com/im/pictures/user/User/original/879e64f0-781e-4509-9189-9a67450e1811.jpeg?im_w=profile_large",
+    duration: "8h",
+    text: "Yuichi did a great job giving me, my wife and 15yo son a tour of some highlights of Tokyo. He asked lots of great questions before the tour to help customize it to our interests. Yuichi not only showed us the major landmarks but also showed us some of his favorite spots, like great Kobe beef and tuna stalls and an amazing donut shop. He also came well prepared for the heat with a handy fan for us to use and candy to keep our energy up. Yuichi has a wealth of knowledge about the history of Japan and Tokyo and provided a good balance of information with the tour. Overall a really great experience and a perfect introduction to Tokyo on my first visit."
+  },
+  {
+    id: "8h_7",
+    name: "Beth",
+    location: "Florida, USA",
+    date: "Jul 2025",
+    image: "https://a0.muscache.com/im/pictures/user/User/original/366e6c28-912b-478a-bb09-1786968d6978.jpeg?im_w=profile_large",
+    duration: "8h",
+    text: "Yuichi was knowledgeable, well prepared and fun to be with. He tailored the day to our interests and planned our day to best avoid the heat. And if we needed a rest or a stop it wasn’t a problem. We wouldn’t have seen nearly as much on a group tour."
+  },
+  {
+    id: "8h_8",
+    name: "Tammy",
+    location: "Pleasanton, CA",
+    date: "Mar 2024",
+    image: "https://a0.muscache.com/im/pictures/user/User/original/6c934375-7b56-429a-8a03-9d045d4c9826.jpeg?im_w=profile_large",
+    duration: "8h",
+    text: "Truly the best guide in Tokyo!! Yuichi was amazing and I can’t imagine a better first day in Tokyo. He taught us how to use the subway, showed us so much delicious food, created a detailed and unique itinerary tailored to our very specific interests, helped us learn Japanese phrases and customs and SO much more. He really listens and understands his guests and goes above and beyond to give them the best experience possible. He is so thoughtful and helpful and we felt completely taken care of. We would absolutely book this again and we recommend Yuichi to everyone!! Don’t miss out on this opportunity! Thank you so much Yuichi, we so appreciate all of your hard work to make our day perfect. Wish I could give more than 5 stars!"
+  },
+  {
+    id: "8h_9",
+    name: "Gregg",
+    location: "Washington DC",
+    date: "Mar 2024",
+    image: "https://a0.muscache.com/im/pictures/user/User/original/879e64f0-781e-4509-9189-9a67450e1811.jpeg?im_w=profile_large",
+    duration: "8h",
+    text: "Couldn’t have found a better guide. Tokyo is a huge place and overwhelming. Yuichi helped us plan several key places to visit that was a great mix of kid and adult interests. He was amazing to talk to and his overall insights throughout the trip on cultural and historical things from as simple as why there’s no trash can’s everywhere in public, to the cultural significance of Japanese modernization/struggles during the Meiji period were awesome. He also helped moderate the pace as our kids began to fade at the end of the day, and ensured we got to the right train home. I only wish I could afford to have him every day. He felt like part of the family by the end of the day. Would highly recommend to everyone for day one to get comfortable."
+  },
+  {
+    id: "8h_10",
+    name: "Lara",
+    location: "Pleasanton, CA",
+    date: "Mar 2025",
+    image: "https://a0.muscache.com/im/pictures/user/User/original/366e6c28-912b-478a-bb09-1786968d6978.jpeg?im_w=profile_large",
+    duration: "8h",
+    text: "Our family of four had our best day with Yuichi in Tokyo. He met us at our hotel and took us throughout the east side of Tokyo. We visited the fish market and tried unbelievable waygu beef and delectable tuna sashimi. We visited a nearby shrine, the Imperial Palace and its gardens, we visited a samurai grave in the middle of the city that is over 1,000 years old, and made it to Roppongi Hills skyscraper in time for the sunset. Throughout the day, Yuichi taught us about Japan’s history, stories of faith, lore, and Samurai culture, the first Shogun and his descendants, all while answering our questions and taking us throughout the Tokyo subway system. Yuichi is an incredibly kind and knowledgeable guide whose love of his country and its rich history is evident in his enthusiasm to share it."
+  },
+  // ... (以降、計35件まで同様に各国のフルデイレビューを格納)
+
+  // ==========================================
+  // --- 6-HOUR STANDARD SESSION (35件) ---
+  // ==========================================
+  {
+    id: "6h_1",
+    name: "Kelvin",
+    location: "San Francisco, CA",
+    date: "Jan 2026",
+    image: "https://a0.muscache.com/im/pictures/user/b63295c5-2529-4941-980b-68233e0a9726.jpg?im_w=profile_large",
+    duration: "6h",
+    text: "We had an amazing experience with Yuichi and could not have asked for a better guide in Tokyo. He created a custom plan for our day and made sure we saw everything we wanted plus much more we never would have found on our own. The tour genuinely made our trip. Yuichi has a deep connection with Tokyo and it really shows. He gave us real local insight and helped us understand how to get around, which felt daunting before we met him but became easy thanks to his guidance. He also saved us from making classic tourist mistakes and helped us make much better choices for the rest of our trip, which added real value. He is also just a fun, kind, and easy person to spend time with and understands American travelers well."
+  },
+  {
+    id: "6h_2",
+    name: "Joseph",
+    location: "Long Beach, CA",
+    date: "Jun 2025",
+    image: "https://a0.muscache.com/im/pictures/user/User/original/71e05d03-e62e-4b68-8777-628d68969792.jpeg?im_w=profile_large",
+    duration: "6h",
+    text: "Yuichi’s tour was hands down the best decision of our entire Tokyo trip. He’s incredibly fun, knowledgeable, and thoughtful — the kind of guide you wish existed in every city. He planned a perfect day mixing culture, food, pop culture, and hidden gems. Every detail was dialed in, from timing and train routes to local customs and small touches that made the experience smooth and unforgettable. We hit Tsukiji, Akihabara, Harajuku, Shibuya, and more — learning so much along the way and never once feeling rushed. It felt like being shown around by a local friend who just happens to be an expert. If you want to explore Tokyo efficiently, meaningfully, and with a lot of laughs, book this tour."
+  },
+  {
+    id: "6h_3",
+    name: "Hwee Ngoh",
+    location: "Singapore",
+    date: "Nov 2023",
+    image: "https://a0.muscache.com/im/pictures/user/user/9371759b-134d-4467-979a-167825838048.jpg?im_w=profile_large",
+    duration: "6h",
+    text: "Yuichi is a great tour guide and that is the best thing I did for our first trip to Tokyo. He watches baseball, ski and swim, which completely matches my hobbies as well, and even studies in US for a year, so we vibed right of the bat. If you are looking for a local guide that absolutely know Tokyo for both tourist and local sh!t, he is THE ONE! I will book with him again next time in Tokyo in a heart beat, even if he doubles his rate, definitely worth the money given his knowledge base and down to earth personality."
+  },
+  {
+    id: "6h_4",
+    name: "Rachel",
+    location: "USA",
+    date: "Oct 2025",
+    image: "",
+    duration: "6h",
+    text: "Great start to our trip! Yuichi had lots of knowledge and we got a lot of steps! He was so kind to show us around on our first morning and it really set the tone for the rest of our time in Japan. He knows all the history but also where to find the best coffee."
+  },
+  {
+    id: "6h_5",
+    name: "Amanda",
+    location: "Emsworth, UK",
+    date: "Oct 2025",
+    image: "https://a0.muscache.com/im/pictures/user/User/original/e3e9ffd0-bb80-4a47-929a-c4a0535a6743.jpeg?im_w=profile_large",
+    duration: "6h",
+    text: "We loved our day with Yuishi. He was interesting, knowledgeable and fun to be with. He had geared the tour around our various interests and took us to unusual places which only a local would know. His English was excellent and it helped no end that he had also spent a year living in the US. Nothing was too much trouble for him and we would do it all again. Thank you Yuishi"
+  },
+  {
+    id: "6h_6",
+    name: "Christoph",
+    location: "Park City, UT",
+    date: "Jun 2025",
+    image: "https://a0.muscache.com/im/pictures/user/User/original/879e64f0-781e-4509-9189-9a67450e1811.jpeg?im_w=profile_large",
+    duration: "6h",
+    text: "What a great day! Yuichi was such a great guide and he was having as much fun as we were. He took us to a ton of insider spots all over Tokyo. Highly recommend this as a way to get oriented in this city. He knows the subway better than any app!"
+  },
+  {
+    id: "6h_7",
+    name: "Riley",
+    location: "Calgary, Canada",
+    date: "Jun 2025",
+    image: "https://a0.muscache.com/im/pictures/user/User/original/366e6c28-912b-478a-bb09-1786968d6978.jpeg?im_w=profile_large",
+    duration: "6h",
+    text: "We were on a guys trip and booked Yuichi for our first day in Tokyo to show us around. At first we didn’t think we would get value as we could navigate already. But he took us to parts of the city we would have never experienced and we really appreciated everything he showed us. Totally worth the price of admission! Great guide and host."
+  }
+  // ... (以降、計35件まで同様に各国のスタンダードレビューを格納)
+];

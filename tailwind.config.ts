@@ -9,6 +9,7 @@ const config: Config = {
             colors: {
                 background: "#000000",
                 foreground: "#FFFFFF",
+                'tech-noir': '#0a0a0a',
             },
             fontFamily: {
                 // Google Fontsから読み込んでいるフォントを指定
@@ -16,6 +17,7 @@ const config: Config = {
                 sans: ["Inter", "sans-serif"],
                 "ja-serif": ["Noto Serif JP", "serif"],
                 "ja-sans": ["Noto Sans JP", "sans-serif"],
+                "mono-tech": ["JetBrains Mono", "Courier New", "monospace"],
             },
             fontSize: {
                 // 固定値にすることで計算負荷を減らす

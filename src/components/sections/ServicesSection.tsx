@@ -25,7 +25,7 @@ export function ServicesSection() {
                 </FadeIn>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-                    {content.items.map((item, index) => (
+                    {content.items.map((item: any, index: number) => (
                         <motion.div
                             key={item.id}
                             initial={{ opacity: 0, y: 20 }}
@@ -47,7 +47,7 @@ export function ServicesSection() {
 
                             {item.pricing && (
                                 <div className="mb-6 space-y-2">
-                                    {item.pricing.map((p, i) => (
+                                    {item.pricing.map((p: string, i: number) => (
                                         <div key={i} className="text-base md:text-lg font-mono tracking-tight text-white/90">
                                             {p}
                                         </div>
@@ -57,7 +57,7 @@ export function ServicesSection() {
 
                             {item.notes && (
                                 <ul className="space-y-1 mb-8">
-                                    {item.notes.map((note, i) => (
+                                    {item.notes.map((note: string, i: number) => (
                                         <li key={i} className="text-xs text-white/40 tracking-wider">
                                             {note}
                                         </li>
