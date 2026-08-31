@@ -1,0 +1,74 @@
+[
+  {
+    "id": "rev-tbl-01",
+    "author": "Joseph D.",
+    "location": "Global Traveler",
+    "avatar": "/images/reviews/rev-tbl-01_joseph_d.jpg",
+    "date": "2026",
+    "rating": 5,
+    "tourType": "Bespoke Tokyo Experience",
+    "content": "Yuichi provided an exceptional experience. His deep knowledge of Tokyo's history and ability to find hidden gems made our trip unforgettable. Highly recommended!",
+    "hostReply": null,
+    "platform": "ToursByLocals"
+  },
+  {
+    "id": "rev-tbl-02",
+    "author": "Kari N.",
+    "location": "Global Traveler",
+    "avatar": null,
+    "date": "2026",
+    "rating": 5,
+    "tourType": "Bespoke Tokyo Experience",
+    "content": "One of the best tours I've ever taken. Yu really understood what we were looking for and crafted a perfect day. We felt like we were walking around with a local friend.",
+    "hostReply": null,
+    "platform": "ToursByLocals"
+  },
+  {
+    "id": "rev-tbl-03",
+    "author": "Katherine S.",
+    "location": "Global Traveler",
+    "avatar": null,
+    "date": "2026",
+    "rating": 5,
+    "tourType": "Bespoke Tokyo Experience",
+    "content": "Absolutely amazing day. From the street food to the hidden shrines, everything was perfectly paced. Yuichi is a true professional.",
+    "hostReply": null,
+    "platform": "ToursByLocals"
+  },
+  {
+    "id": "rev-tbl-04",
+    "author": "Rosemary D.",
+    "location": "Global Traveler",
+    "avatar": null,
+    "date": "2026",
+    "rating": 5,
+    "tourType": "Bespoke Tokyo Experience",
+    "content": "Thank you for showing us the real Tokyo! We loved the photography aspect and the recommendations you gave us for the rest of our trip were spot on.",
+    "hostReply": null,
+    "platform": "ToursByLocals"
+  },
+  {
+    "id": "rev-tbl-05",
+    "author": "Jin Yi K.",
+    "location": "Global Traveler",
+    "avatar": null,
+    "date": "2026",
+    "rating": 5,
+    "tourType": "Bespoke Tokyo Experience",
+    "content": "Incredible host. Very knowledgeable about anime culture as well as traditional history. The perfect balance for our family.",
+    "hostReply": null,
+    "platform": "ToursByLocals"
+  },
+  {
+    "id": "rev-tbl-06",
+    "author": "Lloyd N.",
+    "location": "Global Traveler",
+    "avatar": "/images/reviews/rev-tbl-06_lloyd_n.jpg",
+    "date": "2026",
+    "rating": 5,
+    "tourType": "Bespoke Tokyo Experience",
+    "content": "An unscripted, raw look at Tokyo that we would never have found on our own. Yu's aesthetic sense and deep cultural insight elevated this beyond a standard tour.",
+    "hostReply": null,
+    "platform": "ToursByLocals"
+  }
+]
