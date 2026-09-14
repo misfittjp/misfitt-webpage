@@ -1,5 +1,6 @@
 import Header from "@/components/layout/Header";
 import NoiseOverlay from "@/components/layout/NoiseOverlay";
+import MissionCTA from "@/components/sections/MissionCTA";
 import Footer from "@/components/layout/Footer";
 import ContactForm from "@/components/contact/ContactForm";
 import ConciergeInfo from "@/components/contact/ConciergeInfo";
@@ -34,6 +35,7 @@ export default function ContactPage() {
         </div>
       </main>
       
+      <MissionCTA />
       <Footer />
     </>
   );

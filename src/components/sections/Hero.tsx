@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import exifDataRaw from "@/data/heroExif.json";
+import { useLanguage } from "@/context/LanguageContext";
 
 type ExifData = Record<string, {
   model: string | null;
@@ -82,7 +83,7 @@ const ALL_HERO_IMAGES = [
 const CARD_TEXTS = [
   { tag: "[ 01 // PERSPECTIVE ]", main: "UNSEEN TOKYO." },
   { tag: "[ PHILOSOPHY ]", main: "NOT A TOUR GUIDE." },
-  { tag: "[ COORDINATE ]", main: "35°39'29\"N 139°41'33\"E" },
+  { tag: "[ LOCATION ]", main: "TOKYO, JAPAN" },
   { tag: "[ FIELD NOTE ]", main: "RAW & REFINED." },
   { tag: "[ MANIFESTO ]", main: "DISRUPT THE ORDINARY." },
   { tag: "[ NIGHTSCAPE ]", main: "SHADOW & CHROME." },
@@ -138,6 +139,7 @@ const getCardThemeClasses = (theme: CardTheme) => {
 export default function Hero() {
   const [slots, setSlots] = useState<SlotItem[]>([]);
   const [activeColorIndex, setActiveColorIndex] = useState<number>(0);
+  const { lang } = useLanguage();
   const [patternIndex, setPatternIndex] = useState<number>(0);
   const [showInfo, setShowInfo] = useState<boolean>(true);
   const [viewerImage, setViewerImage] = useState<string | null>(null);
@@ -306,10 +308,10 @@ export default function Hero() {
                         >
                           <Image
                             alt="Tokyo Perspectives"
-                            className="object-cover"
+                            className="object-cover pointer-events-none select-none"
                             style={{ objectPosition: "center 30%" }}
                             fill
-                            priority={globalIndex < 6}
+                            priority={true}
                             quality={90}
                             sizes="(max-width: 768px) 100vw, 50vw"
                             src={slot.src}
@@ -355,29 +357,43 @@ export default function Hero() {
               exit={{ opacity: 0, rotateX: -90 }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               style={{ transformStyle: "preserve-3d", transformOrigin: "center" }}
-              className="pointer-events-auto relative backdrop-blur-2xl bg-neutral-950/85 border border-white/10 p-6 md:p-10 text-center max-w-[90vw] md:max-w-2xl shadow-2xl"
+              className="pointer-events-auto relative bg-neutral-950/90 backdrop-blur-md border border-white/10 px-5 py-8 sm:p-10 md:p-12 max-w-[92vw] sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto text-center shadow-2xl select-none"
             >
-              {/* 閉じるボタン */}
-              <button
-                onClick={() => setShowInfo(false)}
-                className="absolute top-4 right-4 text-[10px] font-mono text-neutral-400 hover:text-white transition-colors tracking-widest"
-              >
-                [ ✕ / HIDE ]
-              </button>
+              {/* 上部ラベル */}
+              <div className="flex justify-between items-center text-[10px] font-mono tracking-widest text-neutral-400 uppercase mb-4 sm:mb-6">
+                <span>[ MISFITT // BESPOKE TOKYO ]</span>
+                <button onClick={() => setShowInfo(false)} className="cursor-pointer hover:text-white transition tracking-widest">
+                  [ × / HIDE ]
+                </button>
+              </div>
 
-              <p className="font-mono text-[10px] md:text-xs text-neutral-400 tracking-[0.25em] uppercase mt-2">
-                [ MISFITT // BESPOKE TOKYO ]
-              </p>
-              <h1 className="font-black text-2xl md:text-5xl tracking-tighter text-white uppercase mt-2 md:mt-3 leading-tight">
-                DESIGNING EXPERIENCES.
-                <br />
-                CAPTURING PERSPECTIVES.
+              {/* メイン見出し：スマホで縮小して左右はみ出しを完全防止 */}
+              <h1 className="font-extrabold tracking-tight text-white font-sans uppercase leading-[1.15] sm:leading-tight my-4">
+                <span className="block text-[1.25rem] xs:text-[1.4rem] sm:text-2xl md:text-4xl lg:text-[2.75rem] whitespace-nowrap">
+                  DESIGNING EXPERIENCES.
+                </span>
+                <span className="block text-[1.25rem] xs:text-[1.4rem] sm:text-2xl md:text-4xl lg:text-[2.75rem] whitespace-nowrap">
+                  DOCUMENTING STORIES.
+                </span>
               </h1>
-              <p className="text-xs md:text-sm text-neutral-300 font-medium tracking-wider mt-3 md:mt-4">
-                気鋭のディレクターが切り取る、東京の輪郭。
-              </p>
-              <p className="text-[10px] md:text-xs text-neutral-400 mt-2 font-light leading-relaxed max-w-lg mx-auto">
-                予定調和の観光を捨て、街の熱量と美学をダイレクトに体験する。完全オーダーメイドのプライベートツアーと、エディトリアル水準の写真表現。
+
+              {/* サブコピー */}
+              <p className="text-[11px] sm:text-xs md:text-sm text-neutral-300 tracking-wide leading-relaxed font-sans mt-4 sm:mt-6 text-center">
+                {lang === "ja" ? (
+                  <span className="block whitespace-pre-line">
+                    東京を歩き 東京の&quot;今&quot;に触れる{"\n"}
+                    プライベートツアーとシネマティック・フォト
+                  </span>
+                ) : (
+                  <>
+                    <span className="block">
+                      Walking Tokyo, touching its living present.
+                    </span>
+                    <span className="block">
+                      Bespoke private tours &amp; cinematic photography.
+                    </span>
+                  </>
+                )}
               </p>
             </motion.div>
           ) : (

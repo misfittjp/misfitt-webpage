@@ -64,8 +64,7 @@ export default function ConciergeInfo() {
             Location
           </span>
           <p className="font-mono text-xs text-neutral-300">
-            Tokyo, Japan<br />
-            35&deg;39&apos;29&quot;N 139&deg;41&apos;33&quot;E
+            Tokyo, Japan
           </p>
         </div>
       </div>

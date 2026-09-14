@@ -68,7 +68,7 @@ const ALL_HERO_IMAGES = [
 ];
 
 const CARD_PRESETS = [
-  { theme: "dark", tag: "[ 01 // PERSPECTIVE ]", main: "UNSEEN TOKYO.", sub: "35°39'29\"N 139°41'33\"E" },
+  { theme: "dark", tag: "[ 01 // PERSPECTIVE ]", main: "UNSEEN TOKYO.", sub: "TOKYO, JAPAN" },
   { theme: "static", tag: "[ SIGNAL // RAW ]", main: "NO TOURIST TRAPS.", sub: "AUTHENTIC FIELDWORK" },
   { theme: "acid", tag: "[ MANIFESTO ]", main: "DISRUPT THE ORDINARY.", sub: "CURATED EXPERIENCES" },
   { theme: "scan", tag: "[ ARCHIVE // 026 ]", main: "SHADOW & CHROME.", sub: "EDITORIAL FOOTAGE" },

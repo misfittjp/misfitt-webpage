@@ -1,75 +1,53 @@
+"use client";
+
+import React from "react";
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Footer() {
+  const { lang } = useLanguage();
+
   return (
-    <footer className="border-t border-white/10 bg-black pt-24 pb-12 text-neutral-400">
-      <div className="mx-auto max-w-7xl px-6 md:px-12">
-        <div className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+    <footer className="bg-neutral-950 border-t border-neutral-900/50 py-12">
+      <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 md:px-12 w-full">
+      {/* Footer Content */}
+      <div>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 items-start mb-12">
           {/* Brand */}
-          <div className="flex flex-col justify-between md:col-span-2">
-            <div>
-              <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-neutral-100 uppercase mb-4">
-                MISFITT
-              </h2>
-              <p className="text-sm max-w-xs">
-                Disrupt the ordinary. Redefine Tokyo. <br />
-                Luxury private tours, editorial photography, and guide academy.
-              </p>
-            </div>
-            <div className="mt-12">
-              <p className="font-mono text-xs tracking-widest text-neutral-500">
-                35&deg;39&apos;29&quot;N 139&deg;41&apos;33&quot;E
-              </p>
-            </div>
+          <div className="md:col-span-6 space-y-3">
+            <h3 className="text-2xl font-extrabold tracking-tight font-sans text-white">MISFITT</h3>
+            <p className="text-xs text-neutral-400 font-sans leading-relaxed whitespace-pre-line">
+              {lang === "ja" ? (
+                <>
+                  ありきたりを脱し 東京を再定義する{"\n"}
+                  完全オーダーメイドのプライベートツアー シネマティック撮影 ガイド育成
+                </>
+              ) : (
+                <>
+                  Disrupt the ordinary. Redefine Tokyo.{"\n"}
+                  Bespoke private tours, cinematic photography, and guide academy.
+                </>
+              )}
+            </p>
           </div>
 
-          {/* Links */}
-          <div>
-            <h3 className="mb-6 font-mono text-xs tracking-widest text-neutral-100">
-              NAVIGATION
-            </h3>
-            <ul className="space-y-4 text-sm">
+          {/* Navigation & Social Combined */}
+          <div className="md:col-span-6">
+            <p className="font-mono text-[10px] tracking-widest text-neutral-600 uppercase mb-4">
+              [ NAVIGATION ]
+            </p>
+            <ul className="grid grid-cols-2 gap-x-4 gap-y-3 text-xs font-mono tracking-wider text-neutral-300 uppercase">
+              <li><Link href="/tours" className="hover:text-white transition">Tours</Link></li>
+              <li><Link href="/photography" className="hover:text-white transition">Photography</Link></li>
+              <li><Link href="/me" className="hover:text-white transition">Founder</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition">Contact</Link></li>
               <li>
-                <Link href="#services" className="hover:text-neutral-100 transition-colors">
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link href="#archive" className="hover:text-neutral-100 transition-colors">
-                  Photo Archive
-                </Link>
-              </li>
-              <li>
-                <Link href="#founder" className="hover:text-neutral-100 transition-colors">
-                  Founder
-                </Link>
-              </li>
-              <li>
-                <Link href="#inquire" className="hover:text-neutral-100 transition-colors">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Socials */}
-          <div>
-            <h3 className="mb-6 font-mono text-xs tracking-widest text-neutral-100">
-              SOCIAL
-            </h3>
-            <ul className="space-y-4 text-sm">
-              <li>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-100 transition-colors">
+                <a href="https://www.instagram.com/yutheguide/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
                   Instagram
                 </a>
               </li>
               <li>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-100 transition-colors">
-                  X (Twitter)
-                </a>
-              </li>
-              <li>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-100 transition-colors">
+                <a href="https://www.linkedin.com/in/yuichi-narisawa-69ab2b1/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">
                   LinkedIn
                 </a>
               </li>
@@ -77,16 +55,43 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-24 flex flex-col items-center justify-between border-t border-white/10 pt-8 text-xs md:flex-row">
-          <p>© {new Date().getFullYear()} MISFITT.TOKYO. All rights reserved.</p>
-          <div className="mt-4 flex gap-6 md:mt-0">
-            <Link href="#" className="hover:text-neutral-100 transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="hover:text-neutral-100 transition-colors">
-              Terms of Service
-            </Link>
+        {/* Integrated Company Profile */}
+        <div className="pt-8 border-t border-neutral-900">
+          <p className="text-neutral-600 font-mono text-[10px] tracking-widest uppercase mb-6">
+            [ COMPANY PROFILE ]
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-4 font-mono text-[10px] tracking-wider text-neutral-500">
+            <div className="flex flex-col gap-1">
+              <span className="text-neutral-600 uppercase">Company_</span>
+              <span className="text-neutral-300">{lang === "ja" ? "株式会社Misfitt" : "Misfitt Inc."}</span>
+            </div>
+            <div className="flex flex-col gap-1">
+              <span className="text-neutral-600 uppercase">Founder / CEO_</span>
+              <span className="text-neutral-300 truncate">{lang === "ja" ? "成澤 祐一" : "Yuichi Narisawa"}</span>
+            </div>
+            <div className="flex flex-col gap-1">
+              <span className="text-neutral-600 uppercase">Location_</span>
+              <span className="text-neutral-300">{lang === "ja" ? "東京都" : "Tokyo, Japan"}</span>
+            </div>
+            {lang === "ja" ? (
+              <div className="flex flex-col gap-1">
+                <span className="text-neutral-600 uppercase">Banking_</span>
+                <span className="text-neutral-300 truncate">三井住友銀行 / 多摩信金</span>
+              </div>
+            ) : (
+              <div className="flex flex-col gap-1">
+                <span className="text-neutral-600 uppercase">Services_</span>
+                <span className="text-neutral-300 truncate">Bespoke Tours, Photography</span>
+              </div>
+            )}
           </div>
+        </div>
+
+        {/* COPYRIGHT */}
+        <div className="mt-12 pt-6 border-t border-neutral-900 flex justify-between items-center text-[9px] font-mono tracking-widest text-neutral-600">
+          <span>&copy; {new Date().getFullYear()} MISFITT INC. ALL RIGHTS RESERVED.</span>
+          <span>TOKYO / JAPAN</span>
+        </div>
         </div>
       </div>
     </footer>

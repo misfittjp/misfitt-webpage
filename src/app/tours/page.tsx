@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "@/components/layout/Header";
+import MissionCTA from "@/components/sections/MissionCTA";
 import Footer from "@/components/layout/Footer";
 import Reviews from "@/components/sections/Reviews";
 import { ArrowRight, CheckCircle2, Video, Camera, CreditCard, Banknote, Shield, Map, Clock, Star, X } from "lucide-react";
@@ -66,6 +67,45 @@ const PHOTO_PLANS = [
   }
 ];
 
+const FEATURED_JOURNEYS = [
+  {
+    tag: "Honeymoon & Couples",
+    title: "2-Day Complete Tokyo Bespoke Experience",
+    story: "A bespoke romantic journey starting from classic Marunouchi vistas to tranquil gardens and hidden alleys, captured with timeless photography.",
+    image: "/images/hero/A7V06864 Large.jpeg"
+  },
+  {
+    tag: "Mother & Daughter",
+    title: "7-Hour Bespoke Tokyo Experience",
+    story: "A vibrant day across Tokyo's contrasts—from tranquil tea house paths at Hama-rikyu to the energetic fashion and pop culture of Shibuya.",
+    image: "/images/hero/A7V00424 Large.jpeg"
+  },
+  {
+    tag: "Culinary & Deep Culture",
+    title: "6-Hour Bespoke Tokyo Experience",
+    story: "Navigating Tsukiji's morning alleys for top-tier Wagyu and tuna sashimi, paired with deep historical storytelling.",
+    image: "/images/hero/A7V04684 Large.jpeg"
+  },
+  {
+    tag: "Family & Pop Culture",
+    title: "8-Hour Ultimate Bespoke Experience",
+    story: "Blending the Indian-Buddhist architecture of Tsukiji Hongwanji with retro gaming and anime hotspots in Akihabara.",
+    image: "/images/hero/A7V01385_GEN Large.jpeg"
+  },
+  {
+    tag: "Kids & Family Fun",
+    title: "8-Hour Bespoke Family Experience",
+    story: "Designed around energy and fun—interactive market stops, neon arcades, and flexible pacing for lively young kids and parents.",
+    image: "/images/hero/A7V06015 Large.jpeg"
+  },
+  {
+    tag: "Teens, Fashion & Cinematic Tokyo",
+    title: "8-Hour Full-Day Cinematic Tokyo Experience",
+    story: "From Meiji Jingu's golden hour to twilight in Shibuya Crossing. A cinematic day tailored for a father and teenage sons with editorial-grade portraits.",
+    image: "/images/hero/A7V07996 Large.jpeg"
+  }
+];
+
 export default function ToursPage() {
   const [formData, setFormData] = useState({
     name: "",
@@ -77,6 +117,34 @@ export default function ToursPage() {
     message: ""
   });
   const [isLoading, setIsLoading] = useState(false);
+  const [exchangeRate, setExchangeRate] = useState<number | null>(null);
+
+  useEffect(() => {
+    fetch("https://open.er-api.com/v6/latest/JPY")
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.rates && data.rates.USD) {
+          setExchangeRate(data.rates.USD);
+        }
+      })
+      .catch(err => console.error("Failed to fetch exchange rate", err));
+  }, []);
+
+  const getPlanPrice = (planId: string) => {
+    const plan = PLANS.find(p => p.id === planId);
+    if (!plan) return 0;
+    return parseInt(plan.price.replace(/[^0-9]/g, ""), 10);
+  };
+
+  const getPhotoPrice = (photoId: string) => {
+    if (photoId === "none") return 0;
+    const plan = PHOTO_PLANS.find(p => p.id === photoId);
+    if (!plan) return 0;
+    return parseInt(plan.price.replace(/[^0-9]/g, ""), 10);
+  };
+
+  const totalJpy = getPlanPrice(formData.plan) + getPhotoPrice(formData.photoAddon);
+  const totalUsd = exchangeRate ? Math.round(totalJpy * exchangeRate) : null;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -179,6 +247,48 @@ export default function ToursPage() {
                 Guided by Yuichi Narisawa, a licensed National Guide (English) with over 10 years of experience and 6,000+ guests hosted. Pure quality, guaranteed.
               </p>
             </div>
+          </div>
+        </section>
+
+        {/* Featured Journeys (Case Studies) */}
+        <section className="mb-32">
+          <div className="px-6 md:px-12 mx-auto max-w-7xl mb-12">
+            <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-white uppercase mb-2">
+              Featured Journeys
+            </h2>
+            <p className="font-mono text-xs text-neutral-500 tracking-widest uppercase">
+              Real stories from recent bespoke experiences
+            </p>
+          </div>
+          
+          {/* Horizontal Scroll Area */}
+          <div className="flex overflow-x-auto pb-12 px-6 md:px-12 gap-6 snap-x snap-mandatory hide-scrollbar">
+            {FEATURED_JOURNEYS.map((journey, idx) => (
+              <div key={idx} className="min-w-[85vw] md:min-w-[400px] max-w-[400px] shrink-0 snap-start flex flex-col group cursor-pointer border border-white/10 bg-neutral-950 overflow-hidden hover:border-white/30 transition-colors">
+                <div className="relative aspect-[4/3] w-full overflow-hidden">
+                  <Image 
+                    src={journey.image} 
+                    alt={journey.title} 
+                    fill 
+                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+                  <div className="absolute top-4 left-4">
+                    <span className="bg-white/10 backdrop-blur-md text-white font-mono text-[10px] uppercase tracking-widest px-3 py-1 border border-white/20">
+                      {journey.tag}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-6 flex flex-col flex-1 border-t border-white/10 bg-neutral-900/30">
+                  <h3 className="text-lg font-bold text-white uppercase leading-snug mb-3">
+                    {journey.title}
+                  </h3>
+                  <p className="text-sm text-neutral-400 leading-relaxed">
+                    {journey.story}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -388,7 +498,7 @@ export default function ToursPage() {
             </div>
             <div>
               <h2 className="text-3xl font-black text-white uppercase mb-2">Yuichi Narisawa</h2>
-              <p className="font-mono text-xs text-neutral-400 tracking-widest uppercase mb-6">Founder & Creative Director / National Guide</p>
+              <p className="font-mono text-xs text-neutral-400 tracking-widest uppercase mb-6">Founder & Creative Director / Nationally Licensed Guide (EN06104)</p>
               <p className="text-neutral-300 leading-relaxed mb-8">
                 Not a templated tour guide. I operate at the intersection of cultural storytelling and editorial aesthetics. With over a decade of experience and a certified National Guide license, my mission is to show you the unseen, raw, and refined sides of Tokyo that most travelers never reach.
               </p>
@@ -486,21 +596,69 @@ export default function ToursPage() {
               />
             </div>
 
+            <div className="flex flex-col gap-2 mt-8 mb-4 border-t border-white/10 pt-8">
+              <div className="flex justify-between items-end">
+                <span className="font-mono text-xs text-neutral-400 uppercase tracking-widest">Total Amount</span>
+                <div className="text-right">
+                  <span className="text-3xl font-black text-white">¥{totalJpy.toLocaleString()}</span>
+                  {totalUsd && (
+                    <span className="block font-mono text-xs text-neutral-500 mt-1">(~${totalUsd} USD)</span>
+                  )}
+                </div>
+              </div>
+            </div>
+
             <button 
               type="submit" 
               disabled={isLoading}
-              className="mt-8 bg-white text-black font-black uppercase tracking-widest text-lg py-5 hover:bg-neutral-200 transition-all flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="mt-4 bg-white text-black font-black uppercase tracking-widest text-lg py-5 hover:bg-neutral-200 transition-all flex items-center justify-center gap-3 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? "Processing..." : "Proceed to Checkout"} <ArrowRight className="w-5 h-5" />
             </button>
-            <p className="text-center font-mono text-[10px] text-neutral-500 tracking-widest mt-2 uppercase">
+            <p className="text-center font-mono text-[10px] text-neutral-500 tracking-widest mt-2 uppercase mb-4">
               Secure payment powered by Stripe.
             </p>
+
+            {/* Payment & Cancellation Notice */}
+            <div className="mt-8 space-y-4">
+              <div className="bg-neutral-900 border border-white/10 p-6">
+                <h4 className="font-bold text-white uppercase text-sm mb-2 flex items-center gap-2">
+                  <Banknote className="w-4 h-4 text-neutral-400" /> Payment in JPY
+                </h4>
+                <p className="text-xs text-neutral-400 leading-relaxed">
+                  All transactions are billed in Japanese Yen (JPY). USD amounts are live estimates for reference only; final charges depend on your card issuer's prevailing exchange rate.
+                </p>
+              </div>
+
+              <div className="bg-neutral-900 border border-white/10 p-6">
+                <h4 className="font-bold text-white uppercase text-sm mb-4 flex items-center gap-2">
+                  <X className="w-4 h-4 text-neutral-400" /> Cancellation Policy
+                </h4>
+                <ul className="text-xs text-neutral-400 space-y-3">
+                  <li className="flex flex-col sm:flex-row sm:justify-between border-b border-white/5 pb-3 gap-1">
+                    <span>Up to 15 days prior to tour date:</span>
+                    <span className="text-white font-bold">Full refund (100%)</span>
+                  </li>
+                  <li className="flex flex-col sm:flex-row sm:justify-between pb-2 gap-1">
+                    <span>14 days or fewer prior to tour date:</span>
+                    <span className="text-white font-bold">Strictly non-refundable (0%)</span>
+                  </li>
+                </ul>
+                <div className="text-[10px] text-neutral-500 italic mt-4 space-y-2">
+                  <p>* All cancellation requests must be submitted in writing.</p>
+                  <p>* Deadlines are calculated strictly according to Japan Standard Time (JST).</p>
+                  <p>* Flight cancellations, travel delays, medical emergencies, or severe weather occurring within 14 days of the tour are strictly non-refundable and cannot be rescheduled. We strongly advise securing comprehensive travel insurance.</p>
+                  <p>* Upon request, we will issue an official cancellation receipt and documentation to support your reimbursement claim with your travel insurance provider.</p>
+                  <p>* Credit card transaction fees are non-refundable.</p>
+                </div>
+              </div>
+            </div>
           </form>
         </section>
 
       </main>
       
+      <MissionCTA />
       <Footer />
     </>
   );

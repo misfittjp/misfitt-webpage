@@ -81,6 +81,7 @@ export default function Gallery() {
                   src={photo.src}
                   alt={photo.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   placeholder="blur"
                   blurDataURL={skeletonSvg}
                   className="object-cover grayscale contrast-125 transition-all duration-700 ease-out group-hover:scale-105 group-hover:grayscale-0"

@@ -25,7 +25,7 @@ export default function PhotoArchive() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-6 md:px-12 gap-1">
-        {photoArchiveData.map((item, index) => (
+        {photoArchiveData.slice(0, 4).map((item, index) => (
           <motion.div
             key={item.id}
             initial={{ opacity: 0 }}
@@ -40,6 +40,7 @@ export default function PhotoArchive() {
               src={item.src}
               alt={item.title}
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               placeholder="blur"
               blurDataURL={skeletonSvg}
               className="object-cover grayscale contrast-125 transition-all duration-700 ease-out group-hover:scale-105 group-hover:grayscale-0"
@@ -74,6 +75,13 @@ export default function PhotoArchive() {
             </div>
           </motion.div>
         ))}
+      </div>
+
+      <div className="mt-16 flex justify-center px-6">
+        <a href="/archive" className="group flex items-center gap-4 border border-white/20 px-8 py-4 text-xs font-mono tracking-widest text-neutral-300 transition-all hover:bg-neutral-900 hover:text-neutral-100 uppercase">
+          EXPLORE FULL ARCHIVE
+          <span className="transition-transform group-hover:translate-x-1">→</span>
+        </a>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import Header from "@/components/layout/Header";
 import NoiseOverlay from "@/components/layout/NoiseOverlay";
+import MissionCTA from "@/components/sections/MissionCTA";
 import Footer from "@/components/layout/Footer";
 import Gallery from "@/components/photography/Gallery";
 import Pricing from "@/components/photography/Pricing";
@@ -15,6 +16,7 @@ export default function PhotographyPage() {
         <Pricing />
       </main>
       
+      <MissionCTA />
       <Footer />
     </>
   );
