@@ -263,10 +263,11 @@ export default function OperativeAndDeployment() {
   const hudState = getHudStatus();
 
   return (
-    <section 
-      className="w-full bg-black border-t border-zinc-900/40 py-16 md:py-20 lg:py-28 px-6 md:px-12 relative select-none"
-      onClick={revertToPublic}
-    >
+    <>
+      <section 
+        className="w-full bg-black border-t border-zinc-900/40 py-24 2xl:py-36 px-6 md:px-12 2xl:px-16 flex flex-col justify-center relative select-none"
+        onClick={revertToPublic}
+      >
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes mobile-stealth-glitch {
           0%, 97%, 100% { opacity: 0; filter: none; transform: translate(0, 0) scale(1); }
@@ -295,17 +296,19 @@ export default function OperativeAndDeployment() {
           100% { transform: translateY(400px); opacity: 0; }
         }
       `}} />
-      <div className="max-w-[1440px] mx-auto flex flex-col gap-8 md:gap-12 lg:gap-16">
+      <div className="max-w-6xl 2xl:max-w-7xl mx-auto w-full flex flex-col gap-8 md:gap-12 lg:gap-16">
         
         {/* HUDステータスバー */}
-        <div className="border-b border-neutral-900 pb-3 flex justify-between font-mono text-[10px] text-neutral-500 tracking-wider">
-          <span>[ SECTOR: 03 // OPERATIVE PROFILE ]</span>
+        <div className="border-b border-neutral-900 pb-3 flex justify-between font-mono text-[9px] text-neutral-500 tracking-wider">
+          <span className="font-mono text-[9px] sm:text-[10px] tracking-widest text-zinc-500 uppercase whitespace-nowrap">
+            // 03 DOSSIER
+          </span>
           <span className={decodePhase === "secret" ? "text-cyan-400 font-bold" : "text-neutral-500"}>
             {decodePhase === "secret" ? "[ STATUS: OVERRIDE // CLASSIFIED ]" : "[ STATUS: ACTIVE // PUBLIC ]"}
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14 2xl:gap-24 items-start">
           
           {/* 写真コンソール（スマホではこの枠内で情報が完結） */}
           <div className="md:col-span-5 flex justify-center">
@@ -318,7 +321,7 @@ export default function OperativeAndDeployment() {
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
               onTouchCancel={handleTouchEnd}
-              className={`relative w-full max-w-[340px] aspect-[4/5] border bg-neutral-950 overflow-hidden cursor-crosshair group ${
+              className={`relative w-full max-w-[340px] 2xl:max-w-[380px] aspect-[4/5] border bg-neutral-950 overflow-hidden cursor-crosshair group ${
                 isGlitchingSnap ? "" : "transition-colors duration-100"
               } ${
                 decodePhase === "secret"
@@ -503,7 +506,7 @@ export default function OperativeAndDeployment() {
                   <span className="font-mono text-[10px] text-neutral-500 tracking-widest block uppercase mb-1">
                     [ EXECUTIVE IDENTITY ]
                   </span>
-                  <h3 className="text-3xl md:text-5xl font-bold tracking-tight text-white">
+                  <h3 className="text-3xl md:text-4xl 2xl:text-5xl font-bold tracking-tight text-white">
                     YUICHI NARISAWA
                   </h3>
                   <p className="font-mono text-xs text-neutral-400 mt-1">
@@ -511,17 +514,17 @@ export default function OperativeAndDeployment() {
                   </p>
                 </div>
 
-                <div className="space-y-3 text-neutral-300 text-sm md:text-base leading-relaxed">
+                <div className="space-y-3 text-neutral-300 text-xs md:text-sm 2xl:text-base leading-relaxed">
                   <p className="italic font-serif text-neutral-400 border-l-2 border-neutral-700 pl-3">
                     "We do not skim the surface of Tokyo. We dissect its layers, unscripted and uncompromising."
                   </p>
-                  <p className="text-neutral-400 text-xs md:text-sm">
+                  <p className="text-neutral-400">
                     Leading an uncompromising creative practice and bespoke tour consultancy. Bridging 10 years of frontline field experience with cinematic narrative.
                   </p>
                 </div>
 
                 {/* 公的スペック表 */}
-                <div className="pt-4 border-t border-neutral-900 font-mono text-xs text-neutral-400 space-y-2">
+                <div className="pt-4 border-t border-neutral-900 font-mono text-[10px] md:text-xs 2xl:text-sm tracking-wider text-neutral-400 space-y-2">
                   <div className="flex justify-between">
                     <span className="text-neutral-500">CLIENT RATING</span>
                     <span className="text-neutral-200">4.99 / 5.0 (AIRBNB VERIFIED)</span>
@@ -545,7 +548,7 @@ export default function OperativeAndDeployment() {
                 </div>
 
                 <div className="pt-2">
-                  <Link href="/me" className="inline-flex items-center gap-1.5 font-mono text-xs text-neutral-400 hover:text-white transition-colors group">
+                  <Link href="/me" className="inline-flex items-center gap-1.5 font-mono text-xs 2xl:text-sm text-neutral-400 hover:text-white transition-colors group">
                     <span>[ VIEW FULL PROFILE & DOSSIER ]</span>
                     <span className="group-hover:translate-x-1 transition-transform">→</span>
                   </Link>
@@ -597,15 +600,19 @@ export default function OperativeAndDeployment() {
               </div>
             )}
           </div>
-
         </div>
+      </div>
+    </section>
 
-        {/* 下段：CTA ＆ ターミナルフッター */}
-        <div className="pt-16 md:pt-20 lg:pt-24 mt-12 md:mt-16 lg:mt-20 border-t border-zinc-900/40">
+      {/* =========================================
+          SECTION 4: DEPLOYMENT (CTA)
+      ========================================= */}
+      <section className="w-full bg-black border-t border-zinc-900/40 pt-24 pb-12 2xl:pt-36 px-6 md:px-12 2xl:px-16 flex flex-col justify-between relative select-none">
+        <div className="max-w-6xl 2xl:max-w-7xl mx-auto w-full flex flex-col justify-center flex-1">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
             <div className="md:col-span-7">
-              <span className="font-mono text-[10px] text-neutral-500 tracking-widest block uppercase mb-2">
-                [ CALL TO ACTION // DEPLOYMENT ]
+              <span className="font-mono text-[9px] sm:text-[10px] tracking-widest text-zinc-500 uppercase whitespace-nowrap block mb-2">
+                // 04 DEPLOYMENT
               </span>
               <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-3">
                 STEP INTO THE UNKNOWN
@@ -625,11 +632,8 @@ export default function OperativeAndDeployment() {
               </Link>
             </div>
           </div>
-
-
         </div>
-
-      </div>
-    </section>
+      </section>
+    </>
   );
 }

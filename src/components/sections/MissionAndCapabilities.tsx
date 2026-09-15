@@ -62,23 +62,12 @@ export default function MissionAndCapabilities() {
       {/* =========================================
           SECTION 2-A: MANIFESTO
       ========================================= */}
-      <section className="w-full relative flex flex-col justify-center items-center px-6 md:px-12 overflow-hidden bg-black py-16 md:py-20 lg:py-28">
+      <section className="w-full relative flex flex-col justify-center items-center px-6 md:px-12 2xl:px-16 overflow-hidden bg-black py-24 2xl:py-36">
         
-        {/* 背景のシネマティック演出 */}
-        <div className="absolute inset-0 pointer-events-none border-[1px] border-zinc-900/40 m-4 md:m-8"></div>
-        <div className="absolute top-8 left-8 md:top-12 md:left-12 font-mono text-[10px] text-zinc-700/60 hidden md:block">
-          // PROTOCOL: RAW & REFINED<br />
-          STATUS: ONLINE
-        </div>
-        <div className="absolute bottom-8 right-8 md:bottom-12 md:right-12 font-mono text-[10px] text-zinc-700/60 text-right hidden md:block">
-          COORD: 35.6895° N, 139.6917° E<br />
-          TOKYO, JP
-        </div>
-
         {/* コンテンツ */}
-        <div className="relative z-10 flex flex-col items-center w-full max-w-[1440px] mx-auto">
-          <span className="font-mono text-[11px] md:text-xs text-emerald-500 tracking-widest block uppercase mb-8 text-center">
-            OUR MANIFESTO
+        <div className="relative z-10 flex flex-col items-center w-full max-w-6xl 2xl:max-w-7xl mx-auto">
+          <span className="font-mono text-[9px] sm:text-[10px] tracking-widest text-zinc-500 uppercase whitespace-nowrap mb-8 text-center block">
+            // 01 MANIFESTO
           </span>
           <h2 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-center max-w-6xl leading-tight text-white">
             WE REJECT THE <span className="italic font-serif font-light text-neutral-400">SUPERFICIAL</span>.<br />
@@ -98,14 +87,14 @@ export default function MissionAndCapabilities() {
       {/* =========================================
           SECTION 2-B: CAPABILITIES / SERVICES
       ========================================= */}
-      <section className="w-full relative flex flex-col justify-center px-6 md:px-12 bg-black py-16 md:py-20 lg:py-28 border-t border-zinc-900/40">
-        <div className="w-full max-w-[1440px] mx-auto flex flex-col justify-center h-full space-y-12">
+      <section className="w-full relative flex flex-col justify-center px-6 md:px-12 2xl:px-16 bg-black py-24 2xl:py-36 border-t border-zinc-900/40">
+        <div className="w-full max-w-6xl 2xl:max-w-[1560px] mx-auto flex flex-col justify-center space-y-12">
           
           {/* ヘッダー部分 */}
           <div className="flex justify-between items-end border-b border-zinc-800 pb-4">
             <div>
-              <span className="font-mono text-[10px] md:text-xs text-neutral-500 tracking-widest block uppercase mb-2">
-                [ CAPABILITIES // 02 ]
+              <span className="font-mono text-[9px] sm:text-[10px] tracking-widest text-zinc-500 uppercase whitespace-nowrap block mb-2">
+                // 02 CAPABILITIES
               </span>
               <h3 className="text-2xl md:text-4xl font-bold text-white tracking-tight">
                 OUR SERVICES
@@ -185,12 +174,12 @@ export default function MissionAndCapabilities() {
           {/* PC表示：大画面4列 / 中画面2列グリッド */}
           <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8 flex-1">
             {services.map((item, idx) => (
-              <div key={idx} className="relative border border-zinc-800/80 bg-neutral-950/40 p-8 xl:p-10 flex flex-col justify-between min-h-[360px] xl:min-h-[420px] transition-colors hover:bg-neutral-900/60 group">
+              <div key={idx} className="relative border border-zinc-800/80 bg-neutral-950/40 p-6 2xl:p-8 flex flex-col justify-between min-h-[380px] 2xl:min-h-[440px] transition-colors hover:bg-neutral-900/60 group">
                 {/* L字コーナーブラケット装飾 */}
                 <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-zinc-600/50"></div>
                 <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-zinc-600/50"></div>
                 
-                <div>
+                <div className="mb-6 2xl:mb-8">
                   <div className="flex justify-between items-start mb-6">
                     <span className="font-mono text-xs xl:text-sm text-emerald-400">[{item.id}]</span>
                     <span className="w-1.5 h-1.5 rounded-full bg-zinc-700 group-hover:bg-emerald-500 transition-colors shadow-[0_0_8px_rgba(16,185,129,0)] group-hover:shadow-[0_0_8px_rgba(16,185,129,0.8)]"></span>
@@ -198,11 +187,11 @@ export default function MissionAndCapabilities() {
                   <h4 className="font-bold text-xl xl:text-2xl text-white mb-4 leading-tight">
                     {lang === "ja" ? item.titleJa : item.titleEn}
                   </h4>
-                  <p className="text-zinc-400 text-sm xl:text-base leading-relaxed">
+                  <p className="text-xs 2xl:text-sm leading-relaxed text-zinc-400">
                     {lang === "ja" ? item.descJa : item.descEn}
                   </p>
                 </div>
-                <div className="mt-8 pt-6 border-t border-zinc-800/60">
+                <div className="mt-auto pt-6 border-t border-zinc-800/60">
                   <div className="font-mono text-[10px] xl:text-xs text-neutral-500 space-y-2 mb-8">
                     {item.specs.map((spec, sIdx) => <div key={sIdx}>{spec}</div>)}
                   </div>
