@@ -65,15 +65,15 @@ export default function MissionAndCapabilities() {
       <section className="w-full relative flex flex-col justify-center items-center px-6 md:px-12 2xl:px-16 overflow-hidden bg-black py-24 2xl:py-36">
         
         {/* コンテンツ */}
-        <div className="relative z-10 flex flex-col items-center w-full max-w-6xl 2xl:max-w-7xl mx-auto">
+        <div className="relative z-10 flex flex-col items-center w-full max-w-6xl 2xl:max-w-[2400px] mx-auto">
           <span className="font-mono text-[9px] sm:text-[10px] tracking-widest text-zinc-500 uppercase whitespace-nowrap mb-8 text-center block">
             // 01 MANIFESTO
           </span>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-center max-w-6xl leading-tight text-white">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-[5.5rem] 2xl:leading-[1.1] font-bold tracking-tight text-center max-w-6xl 2xl:max-w-[1800px] leading-tight text-white">
             WE REJECT THE <span className="italic font-serif font-light text-neutral-400">SUPERFICIAL</span>.<br />
             WE EMBRACE THE RAW, THE AUTHENTIC, AND THE PROFOUND.
           </h2>
-          <div className="text-base md:text-xl text-zinc-400 text-center max-w-3xl mt-8 md:mt-12 leading-relaxed space-y-6">
+          <div className="text-base md:text-xl 2xl:text-2xl text-zinc-400 text-center max-w-3xl 2xl:max-w-4xl mt-8 md:mt-12 2xl:mt-16 leading-relaxed 2xl:leading-loose space-y-6 2xl:space-y-8">
             <p>
               Misfitt is born from the streets of Tokyo. We don&apos;t do tourist traps, scripted speeches, or crowded buses. We are professionals of the field—immersed in the subcultures, the high-end gastronomy, and the architectural brilliance that defines this city.
             </p>
@@ -88,7 +88,7 @@ export default function MissionAndCapabilities() {
           SECTION 2-B: CAPABILITIES / SERVICES
       ========================================= */}
       <section className="w-full relative flex flex-col justify-center px-6 md:px-12 2xl:px-16 bg-black py-24 2xl:py-36 border-t border-zinc-900/40">
-        <div className="w-full max-w-6xl 2xl:max-w-[1560px] mx-auto flex flex-col justify-center space-y-12">
+        <div className="w-full max-w-6xl 2xl:max-w-[2400px] mx-auto flex flex-col justify-center space-y-12 2xl:space-y-20">
           
           {/* ヘッダー部分 */}
           <div className="flex justify-between items-end border-b border-zinc-800 pb-4">
@@ -172,30 +172,30 @@ export default function MissionAndCapabilities() {
           </div>
 
           {/* PC表示：大画面4列 / 中画面2列グリッド */}
-          <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8 flex-1">
+          <div className="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-8 2xl:gap-12 flex-1">
             {services.map((item, idx) => (
-              <div key={idx} className="relative border border-zinc-800/80 bg-neutral-950/40 p-6 2xl:p-8 flex flex-col justify-between min-h-[380px] 2xl:min-h-[440px] transition-colors hover:bg-neutral-900/60 group">
+              <div key={idx} className="relative border border-zinc-800/80 bg-neutral-950/40 p-6 2xl:p-10 flex flex-col justify-between min-h-[380px] 2xl:min-h-[500px] transition-colors hover:bg-neutral-900/60 group">
                 {/* L字コーナーブラケット装飾 */}
                 <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-zinc-600/50"></div>
                 <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-zinc-600/50"></div>
                 
-                <div className="mb-6 2xl:mb-8">
-                  <div className="flex justify-between items-start mb-6">
-                    <span className="font-mono text-xs xl:text-sm text-emerald-400">[{item.id}]</span>
+                <div className="mb-6 2xl:mb-10">
+                  <div className="flex justify-between items-start mb-6 2xl:mb-8">
+                    <span className="font-mono text-xs xl:text-sm 2xl:text-base text-emerald-400">[{item.id}]</span>
                     <span className="w-1.5 h-1.5 rounded-full bg-zinc-700 group-hover:bg-emerald-500 transition-colors shadow-[0_0_8px_rgba(16,185,129,0)] group-hover:shadow-[0_0_8px_rgba(16,185,129,0.8)]"></span>
                   </div>
-                  <h4 className="font-bold text-xl xl:text-2xl text-white mb-4 leading-tight">
+                  <h4 className="font-bold text-xl xl:text-2xl 2xl:text-4xl text-white mb-4 2xl:mb-6 leading-tight">
                     {lang === "ja" ? item.titleJa : item.titleEn}
                   </h4>
-                  <p className="text-xs 2xl:text-sm leading-relaxed text-zinc-400">
+                  <p className="text-xs 2xl:text-base leading-relaxed 2xl:leading-loose text-zinc-400">
                     {lang === "ja" ? item.descJa : item.descEn}
                   </p>
                 </div>
-                <div className="mt-auto pt-6 border-t border-zinc-800/60">
-                  <div className="font-mono text-[10px] xl:text-xs text-neutral-500 space-y-2 mb-8">
+                <div className="mt-auto pt-6 2xl:pt-8 border-t border-zinc-800/60">
+                  <div className="font-mono text-[10px] xl:text-xs 2xl:text-sm text-neutral-500 space-y-2 2xl:space-y-3 mb-8 2xl:mb-10">
                     {item.specs.map((spec, sIdx) => <div key={sIdx}>{spec}</div>)}
                   </div>
-                  <Link href={item.link} className="inline-flex items-center justify-between w-full font-mono text-[10px] lg:text-xs xl:text-sm text-neutral-300 hover:text-black group-hover:bg-white border border-zinc-800/60 bg-black/40 px-4 py-3 transition-colors hover:border-zinc-400">
+                  <Link href={item.link} className="inline-flex items-center justify-between w-full font-mono text-[10px] lg:text-xs xl:text-sm 2xl:text-base text-neutral-300 hover:text-black group-hover:bg-white border border-zinc-800/60 bg-black/40 px-4 py-3 2xl:px-6 2xl:py-5 transition-colors hover:border-zinc-400">
                     <span>ACCESS MODULE</span>
                     <span className="group-hover:translate-x-1 transition-transform">→</span>
                   </Link>

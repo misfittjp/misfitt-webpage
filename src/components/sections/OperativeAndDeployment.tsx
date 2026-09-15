@@ -265,7 +265,7 @@ export default function OperativeAndDeployment() {
   return (
     <>
       <section 
-        className="w-full bg-black border-t border-zinc-900/40 py-24 2xl:py-36 px-6 md:px-12 2xl:px-16 flex flex-col justify-center relative select-none"
+        className="w-full bg-black border-t border-zinc-900/40 pt-24 pb-12 2xl:pt-36 2xl:pb-16 px-6 md:px-12 2xl:px-16 flex flex-col justify-center relative select-none"
         onClick={revertToPublic}
       >
       <style dangerouslySetInnerHTML={{__html: `
@@ -296,7 +296,7 @@ export default function OperativeAndDeployment() {
           100% { transform: translateY(400px); opacity: 0; }
         }
       `}} />
-      <div className="max-w-6xl 2xl:max-w-7xl mx-auto w-full flex flex-col gap-8 md:gap-12 lg:gap-16">
+      <div className="max-w-6xl 2xl:max-w-[2400px] mx-auto w-full flex flex-col gap-8 md:gap-12 lg:gap-16 2xl:gap-24">
         
         {/* HUDステータスバー */}
         <div className="border-b border-neutral-900 pb-3 flex justify-between font-mono text-[9px] text-neutral-500 tracking-wider">
@@ -321,7 +321,7 @@ export default function OperativeAndDeployment() {
               onTouchStart={handleTouchStart}
               onTouchEnd={handleTouchEnd}
               onTouchCancel={handleTouchEnd}
-              className={`relative w-full max-w-[340px] 2xl:max-w-[380px] aspect-[4/5] border bg-neutral-950 overflow-hidden cursor-crosshair group ${
+              className={`relative w-full max-w-[340px] 2xl:max-w-[460px] aspect-[4/5] border bg-neutral-950 overflow-hidden cursor-crosshair group ${
                 isGlitchingSnap ? "" : "transition-colors duration-100"
               } ${
                 decodePhase === "secret"
@@ -501,21 +501,21 @@ export default function OperativeAndDeployment() {
               </div>
             ) : decodePhase === "public" ? (
               /* 表：CEOモード */
-              <div className="space-y-6">
+              <div className="space-y-6 2xl:space-y-10">
                 <div>
-                  <span className="font-mono text-[10px] text-neutral-500 tracking-widest block uppercase mb-1">
+                  <span className="font-mono text-[10px] 2xl:text-xs text-neutral-500 tracking-widest block uppercase mb-1 2xl:mb-3">
                     [ EXECUTIVE IDENTITY ]
                   </span>
-                  <h3 className="text-3xl md:text-4xl 2xl:text-5xl font-bold tracking-tight text-white">
+                  <h3 className="text-3xl md:text-4xl 2xl:text-6xl font-bold tracking-tight text-white mb-2 2xl:mb-4">
                     YUICHI NARISAWA
                   </h3>
-                  <p className="font-mono text-xs text-neutral-400 mt-1">
+                  <p className="font-mono text-xs 2xl:text-sm text-neutral-400 mt-1">
                     Founder & Representative Director, Misfitt Inc.
                   </p>
                 </div>
 
-                <div className="space-y-3 text-neutral-300 text-xs md:text-sm 2xl:text-base leading-relaxed">
-                  <p className="italic font-serif text-neutral-400 border-l-2 border-neutral-700 pl-3">
+                <div className="space-y-3 2xl:space-y-6 text-neutral-300 text-xs md:text-sm 2xl:text-xl leading-relaxed 2xl:leading-loose">
+                  <p className="italic font-serif text-neutral-400 border-l-2 border-neutral-700 pl-3 2xl:pl-5 2xl:py-2">
                     "We do not skim the surface of Tokyo. We dissect its layers, unscripted and uncompromising."
                   </p>
                   <p className="text-neutral-400">
@@ -524,7 +524,7 @@ export default function OperativeAndDeployment() {
                 </div>
 
                 {/* 公的スペック表 */}
-                <div className="pt-4 border-t border-neutral-900 font-mono text-[10px] md:text-xs 2xl:text-sm tracking-wider text-neutral-400 space-y-2">
+                <div className="pt-4 2xl:pt-8 border-t border-neutral-900 font-mono text-[10px] md:text-xs 2xl:text-sm tracking-wider text-neutral-400 space-y-2 2xl:space-y-4">
                   <div className="flex justify-between">
                     <span className="text-neutral-500">CLIENT RATING</span>
                     <span className="text-neutral-200">4.99 / 5.0 (AIRBNB VERIFIED)</span>
@@ -547,8 +547,8 @@ export default function OperativeAndDeployment() {
                   </div>
                 </div>
 
-                <div className="pt-2">
-                  <Link href="/me" className="inline-flex items-center gap-1.5 font-mono text-xs 2xl:text-sm text-neutral-400 hover:text-white transition-colors group">
+                <div className="pt-2 2xl:pt-4">
+                  <Link href="/me" className="inline-flex items-center gap-1.5 font-mono text-xs 2xl:text-base text-neutral-400 hover:text-white transition-colors group">
                     <span>[ VIEW FULL PROFILE & DOSSIER ]</span>
                     <span className="group-hover:translate-x-1 transition-transform">→</span>
                   </Link>
@@ -607,26 +607,26 @@ export default function OperativeAndDeployment() {
       {/* =========================================
           SECTION 4: DEPLOYMENT (CTA)
       ========================================= */}
-      <section className="w-full bg-black border-t border-zinc-900/40 pt-24 pb-12 2xl:pt-36 px-6 md:px-12 2xl:px-16 flex flex-col justify-between relative select-none">
-        <div className="max-w-6xl 2xl:max-w-7xl mx-auto w-full flex flex-col justify-center flex-1">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+      <section className="w-full bg-black border-t border-zinc-900/40 pt-8 pb-12 2xl:pt-12 2xl:pb-24 px-6 md:px-12 2xl:px-16 flex flex-col justify-between relative select-none">
+        <div className="max-w-6xl 2xl:max-w-[2400px] mx-auto w-full flex flex-col justify-center flex-1">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 2xl:gap-16 items-end">
             <div className="md:col-span-7">
-              <span className="font-mono text-[9px] sm:text-[10px] tracking-widest text-zinc-500 uppercase whitespace-nowrap block mb-2">
+              <span className="font-mono text-[9px] sm:text-[10px] 2xl:text-xs tracking-widest text-zinc-500 uppercase whitespace-nowrap block mb-2 2xl:mb-6">
                 // 04 DEPLOYMENT
               </span>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-white mb-3">
+              <h2 className="text-3xl md:text-5xl 2xl:text-7xl font-bold tracking-tight text-white mb-3 2xl:mb-8">
                 STEP INTO THE UNKNOWN
               </h2>
-              <p className="text-neutral-400 text-sm md:text-base max-w-xl leading-relaxed">
+              <p className="text-neutral-400 text-sm md:text-base 2xl:text-xl max-w-xl 2xl:max-w-3xl leading-relaxed 2xl:leading-loose">
                 Whether you seek an uncompromising Tokyo experience, high-end editorial media, or strategic inbound consulting for your enterprise—our journey starts here.
               </p>
             </div>
-            <div className="md:col-span-5 flex flex-col gap-3">
-              <Link href="/contact" className="w-full py-4 px-6 bg-white text-black font-mono text-xs uppercase font-semibold flex items-center justify-between hover:bg-neutral-200 transition-colors">
+            <div className="md:col-span-5 flex flex-col gap-3 2xl:gap-5">
+              <Link href="/contact" className="w-full py-4 px-6 2xl:py-6 2xl:px-10 bg-white text-black font-mono text-xs 2xl:text-base uppercase font-semibold flex items-center justify-between hover:bg-neutral-200 transition-colors">
                 <span>BOOK YOUR EXPERIENCE</span>
                 <span>→</span>
               </Link>
-              <Link href="/contact" className="w-full py-4 px-6 border border-neutral-800 text-neutral-300 font-mono text-xs uppercase flex items-center justify-between hover:border-neutral-600 transition-colors">
+              <Link href="/contact" className="w-full py-4 px-6 2xl:py-6 2xl:px-10 border border-neutral-800 text-neutral-300 font-mono text-xs 2xl:text-base uppercase flex items-center justify-between hover:border-neutral-600 transition-colors">
                 <span>BUSINESS & PARTNERSHIP</span>
                 <span>→</span>
               </Link>

@@ -8,11 +8,11 @@ export default function Footer() {
   const { lang } = useLanguage();
 
   return (
-    <footer className="bg-neutral-950 border-t border-zinc-900/40 py-16 md:py-20 lg:py-28">
-      <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 md:px-12 2xl:px-16 w-full">
+    <footer className="bg-neutral-950 border-t border-zinc-900/40 py-10 md:py-12 2xl:py-14">
+      <div className="max-w-6xl 2xl:max-w-[2400px] mx-auto px-6 md:px-12 2xl:px-16 w-full">
       {/* Footer Content */}
       <div>
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 items-start mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 items-start mb-8 2xl:mb-10">
           {/* Brand */}
           <div className="md:col-span-6 space-y-3">
             <h3 className="text-3xl md:text-4xl font-extrabold tracking-tight font-sans text-white">MISFITT</h3>
@@ -56,8 +56,8 @@ export default function Footer() {
         </div>
 
         {/* Integrated Company Profile */}
-        <div className="pt-8 border-t border-neutral-900">
-          <p className="text-neutral-600 font-mono text-[10px] tracking-widest uppercase mb-6">
+        <div className="pt-6 2xl:pt-8 border-t border-neutral-900">
+          <p className="text-neutral-600 font-mono text-[10px] tracking-widest uppercase mb-4">
             [ COMPANY PROFILE ]
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-4 font-mono text-[10px] tracking-wider text-neutral-500">
@@ -88,7 +88,7 @@ export default function Footer() {
         </div>
 
         {/* COPYRIGHT */}
-        <div className="mt-12 pt-6 border-t border-neutral-900 flex justify-between items-center text-[9px] font-mono tracking-widest text-neutral-600">
+        <div className="mt-8 2xl:mt-10 pt-4 2xl:pt-6 border-t border-neutral-900 flex justify-between items-center text-[9px] font-mono tracking-widest text-neutral-600">
           <span>&copy; {new Date().getFullYear()} MISFITT INC. ALL RIGHTS RESERVED.</span>
           <span>TOKYO / JAPAN</span>
         </div>
