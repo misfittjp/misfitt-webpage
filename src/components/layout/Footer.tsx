@@ -8,14 +8,14 @@ export default function Footer() {
   const { lang } = useLanguage();
 
   return (
-    <footer className="bg-neutral-950 border-t border-neutral-900/50 py-12">
-      <div className="max-w-6xl 2xl:max-w-7xl mx-auto px-6 md:px-12 w-full">
+    <footer className="bg-neutral-950 border-t border-zinc-900/40 py-16 md:py-20 lg:py-28">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 w-full">
       {/* Footer Content */}
       <div>
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8 items-start mb-12">
           {/* Brand */}
           <div className="md:col-span-6 space-y-3">
-            <h3 className="text-2xl font-extrabold tracking-tight font-sans text-white">MISFITT</h3>
+            <h3 className="text-3xl md:text-4xl font-extrabold tracking-tight font-sans text-white">MISFITT</h3>
             <p className="text-xs text-neutral-400 font-sans leading-relaxed whitespace-pre-line">
               {lang === "ja" ? (
                 <>

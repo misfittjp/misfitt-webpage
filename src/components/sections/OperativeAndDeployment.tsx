@@ -264,7 +264,7 @@ export default function OperativeAndDeployment() {
 
   return (
     <section 
-      className="w-full bg-black border-t border-neutral-900 py-16 md:py-28 px-6 relative select-none"
+      className="w-full bg-black border-t border-zinc-900/40 py-16 md:py-20 lg:py-28 px-6 md:px-12 relative select-none"
       onClick={revertToPublic}
     >
       <style dangerouslySetInnerHTML={{__html: `
@@ -295,7 +295,7 @@ export default function OperativeAndDeployment() {
           100% { transform: translateY(400px); opacity: 0; }
         }
       `}} />
-      <div className="max-w-6xl mx-auto flex flex-col gap-8 md:gap-10">
+      <div className="max-w-[1440px] mx-auto flex flex-col gap-8 md:gap-12 lg:gap-16">
         
         {/* HUDステータスバー */}
         <div className="border-b border-neutral-900 pb-3 flex justify-between font-mono text-[10px] text-neutral-500 tracking-wider">
@@ -305,7 +305,7 @@ export default function OperativeAndDeployment() {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 lg:gap-16 items-start">
           
           {/* 写真コンソール（スマホではこの枠内で情報が完結） */}
           <div className="md:col-span-5 flex justify-center">
@@ -601,7 +601,7 @@ export default function OperativeAndDeployment() {
         </div>
 
         {/* 下段：CTA ＆ ターミナルフッター */}
-        <div className="pt-16 border-t border-neutral-900 space-y-16">
+        <div className="pt-16 md:pt-20 lg:pt-24 mt-12 md:mt-16 lg:mt-20 border-t border-zinc-900/40">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
             <div className="md:col-span-7">
               <span className="font-mono text-[10px] text-neutral-500 tracking-widest block uppercase mb-2">
@@ -626,21 +626,7 @@ export default function OperativeAndDeployment() {
             </div>
           </div>
 
-          <div className="pt-8 border-t border-neutral-900/60 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 font-mono text-xs text-neutral-500">
-            <div>
-              <span className="text-white font-bold">MISFITT INC.</span>
-              <span className="text-neutral-600 ml-2">// TOKYO, JAPAN</span>
-            </div>
-            <div className="flex gap-6">
-              <Link href="/tours" className="hover:text-white transition-colors">TOURS</Link>
-              <Link href="/photography" className="hover:text-white transition-colors">PHOTOGRAPHY</Link>
-              <Link href="/me" className="hover:text-white transition-colors">DOSSIER</Link>
-              <Link href="/contact" className="hover:text-white transition-colors">CONTACT</Link>
-            </div>
-            <div className="text-[10px] text-neutral-600">
-              © 2026 MISFITT INC. ALL RIGHTS RESERVED.
-            </div>
-          </div>
+
         </div>
 
       </div>
