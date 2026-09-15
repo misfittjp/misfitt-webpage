@@ -58,16 +58,16 @@ export default function Header() {
         {/* Desktop Nav */}
         <nav className="hidden items-center gap-8 md:flex">
           <Link
-            href="/#divisions"
-            className="text-xs font-mono tracking-widest text-neutral-400 hover:text-neutral-100 transition-colors"
-          >
-            SERVICES
-          </Link>
-          <Link
             href="/tours"
             className="text-xs font-mono tracking-widest text-neutral-400 hover:text-neutral-100 transition-colors"
           >
             TOURS
+          </Link>
+          <Link
+            href="/photography"
+            className="text-xs font-mono tracking-widest text-neutral-400 hover:text-neutral-100 transition-colors"
+          >
+            PHOTOGRAPHY
           </Link>
           <Link
             href="/me"
@@ -135,18 +135,18 @@ export default function Header() {
           >
             <nav className="flex flex-col gap-8 mt-12 items-center">
               <Link
-                href="/#divisions"
-                className="text-sm font-mono tracking-widest text-neutral-300 hover:text-white transition-colors"
-                onClick={closeMenu}
-              >
-                SERVICES
-              </Link>
-              <Link
                 href="/tours"
                 className="text-sm font-mono tracking-widest text-neutral-300 hover:text-white transition-colors"
                 onClick={closeMenu}
               >
                 TOURS
+              </Link>
+              <Link
+                href="/photography"
+                className="text-sm font-mono tracking-widest text-neutral-300 hover:text-white transition-colors"
+                onClick={closeMenu}
+              >
+                PHOTOGRAPHY
               </Link>
               <Link
                 href="/me"
